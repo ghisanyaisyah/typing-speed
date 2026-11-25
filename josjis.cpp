@@ -210,9 +210,15 @@ int main() {
     mvprintw(11, 23, "%s", predikat);
     attroff(COLOR_PAIR(warna));
 
-    mvprintw(13, 5, "Tekan tombol apa saja untuk keluar...");
+        mvprintw(13, 5, "Tekan ENTER untuk keluar...");
     refresh();
-    getch();
+
+    Sleep(1000);   
+
+    int tombol = getch();
+    while (tombol != '\n' && tombol != KEY_ENTER && tombol != '\r') {
+        tombol = getch();
+    }
 
     endwin();
     return 0;
